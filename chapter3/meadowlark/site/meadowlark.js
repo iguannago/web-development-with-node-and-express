@@ -9,28 +9,23 @@ app.engine('handlebars', expressHandlebars({
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-    res.type('text/plain')
-    res.send('Meadowlark Travel')
+    res.render('home')
 })
 
 app.get('/about', (req, res) => {
-    res.type('text/plain')
-    res.send('About Meadowlark Travel')
+    res.render('about')
 })
 
 app.use((req, res) => {
-    console.log('app use 404')
-    res.type('text/plain')
     res.status(404)
-    res.send('404 - Not found')
+    res.render('404')
 })
 
 app.use((err, req, res, next) => {
     console.log('app use 500')
     console.error(err.message)
-    res.type('text/plain')
     res.status(500)
-    res.send('500 - Server Error')
+    res.render('500')
 })
 
 app.listen(port, () => console.log(`Express started on http://localhost:${port}; \n press Ctrl-C to terminate.`))
