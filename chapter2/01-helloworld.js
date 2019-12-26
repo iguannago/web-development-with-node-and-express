@@ -3,7 +3,7 @@ const port = process.env.PORT | 3000;
 
 function setHead(res, httpStatus) {
     res.writeHead(httpStatus, {
-        'Content-Type': 'text/html'
+        'Content-Type': 'text/plain'
     })
 }
 
@@ -13,15 +13,15 @@ const routes = (req, res) => {
     switch (path) {
         case '/':
             setHead(res, 200);
-            res.end('<h1>Homepage</h1');
+            res.end('Homepage');
             break;
         case '/about':
             setHead(res, 200);
-            res.end('<h1>About</h1');
+            res.end('About');
             break;
         default:
             setHead(res, 400);
-            res.end('<h1>Not Found</h1');
+            res.end('Not Found');
     }
 }
 
