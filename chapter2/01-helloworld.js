@@ -8,7 +8,6 @@ function setHead(res, httpStatus) {
 }
 
 const routes = (req, res) => {
-    console.log(req.url);
     const path = req.url;
     switch (path) {
         case '/':
