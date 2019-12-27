@@ -1,7 +1,0 @@
-### NODE ###
-# Dependency directories
-node_modules/
-
-### OSX ###
-# General
-.DS_Store
