@@ -4,7 +4,8 @@
   "description": "Mealowlark example project",
   "main": "meadowlark.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "David Crespo",
   "license": "ISC",
