@@ -1,11 +1,14 @@
 const handlers = require('../handlers')
+let req, res
 
-test('home page render', () => {
-    const res = {
+beforeEach(() => {
+    res = {
         render: jest.fn()
     }
-    const req = {}
+    req = {}
+})
 
+test('home page render', () => {
     handlers.home(req, res)
 
     expect(res.render.mock.calls.length).toBe(1)
@@ -13,11 +16,6 @@ test('home page render', () => {
 })
 
 test('about page render', () => {
-    const res = {
-        render: jest.fn()
-    }
-    const req = {}
-
     handlers.about(req, res)
 
     expect(res.render.mock.calls.length).toBe(1)
@@ -26,3 +24,7 @@ test('about page render', () => {
         fortune: expect.any(String)
     }))
 })
+
+// test("404 page render", () => {
+//     handlers.notFound(req, res)
+// })
