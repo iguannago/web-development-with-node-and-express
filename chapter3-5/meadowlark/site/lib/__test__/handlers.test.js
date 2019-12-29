@@ -32,6 +32,21 @@ test("404 page render and status", () => {
 
     expect(res.render.mock.calls.length).toBe(1)
     expect(res.render.mock.calls[0][0]).toBe('404')
+
     expect(res.status.mock.calls.length).toBe(1)
     expect(res.status.mock.calls[0][0]).toBe(404)
+})
+
+test("500 page render and status", () => {
+    res.status = jest.fn()
+    const err = {}
+    const next = {}
+
+    handlers.serverError(err, req, res, next)
+
+    expect(res.render.mock.calls.length).toBe(1)
+    expect(res.render.mock.calls[0][0]).toBe('500')
+
+    expect(res.status.mock.calls.length).toBe(1)
+    expect(res.status.mock.calls[0][0]).toBe(500)
 })
