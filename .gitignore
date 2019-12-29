@@ -1,6 +1,7 @@
 ### NODE ###
 # Dependency directories
 *node_modules/
+*coverage/
 
 ### OSX ###
 # General
