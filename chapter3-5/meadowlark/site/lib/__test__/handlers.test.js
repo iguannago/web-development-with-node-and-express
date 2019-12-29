@@ -26,15 +26,12 @@ test('about page render', () => {
 })
 
 test("404 page render and status", () => {
-    res = {
-        status: jest.fn(),
-        render: jest.fn()
-    }
+    res.status = jest.fn()
+
     handlers.notFound(req, res)
 
     expect(res.render.mock.calls.length).toBe(1)
     expect(res.render.mock.calls[0][0]).toBe('404')
-
     expect(res.status.mock.calls.length).toBe(1)
     expect(res.status.mock.calls[0][0]).toBe(404)
 })
