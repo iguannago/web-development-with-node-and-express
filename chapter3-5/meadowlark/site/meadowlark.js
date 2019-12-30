@@ -1,6 +1,7 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
 const handlers = require('./lib/handlers')
+const headers = require('./lib/hearders')
 const path = require('path')
 
 const app = express()
@@ -16,6 +17,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', handlers.home)
 
 app.get('/about', handlers.about)
+
+app.get('/headers', headers.showHeaders)
 
 app.use(handlers.notFound)
 
