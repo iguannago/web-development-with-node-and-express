@@ -14,6 +14,9 @@ exports.notFound = (req, res) => {
 }
 
 exports.serverError = (err, req, res, next) => {
+  if (err) {
+    console.log(err.stack)
+  }
   res.status(500)
   res.render('500')
 }
