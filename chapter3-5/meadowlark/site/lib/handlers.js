@@ -18,5 +18,7 @@ exports.serverError = (err, req, res, next) => {
     console.log(err.stack)
   }
   res.status(500)
-  res.render('500')
+  res.render('500', {
+    message: err.stack
+  })
 }
