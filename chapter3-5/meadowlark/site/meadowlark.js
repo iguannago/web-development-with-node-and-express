@@ -4,8 +4,9 @@ const handlers = require('./lib/handlers')
 const headers = require('./lib/hearders')
 const path = require('path')
 
-const app = express()
 const port = process.env.PORT || 3000
+const app = express()
+app.disable('x-powered-by')
 
 app.engine('handlebars', expressHandlebars({
   defaultLayout: 'main'
