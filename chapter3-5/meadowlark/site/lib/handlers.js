@@ -22,3 +22,16 @@ exports.serverError = (err, req, res, next) => {
     message: err.stack
   })
 }
+
+exports.contact = (req, res) => {
+  res.render('contact')
+}
+
+exports.processContact = (req, res) => {
+  console.log(`received contact from ${req.body.name} <${req.body.email}>`)
+  res.redirect(303, '/thank-you')
+}
+
+exports.thankYou = (req, res) => {
+  res.render('thank-you')
+}

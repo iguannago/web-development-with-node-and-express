@@ -3,6 +3,7 @@ const expressHandlebars = require('express-handlebars')
 const handlers = require('./lib/handlers')
 const headers = require('./lib/hearders')
 const path = require('path')
+const bodyParser = require('body-parser')
 
 const port = process.env.PORT || 3000
 const app = express()
@@ -13,6 +14,10 @@ app.engine('handlebars', expressHandlebars({
 }))
 app.set('view engine', 'handlebars')
 
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', handlers.home)
@@ -20,6 +25,12 @@ app.get('/', handlers.home)
 app.get('/about', handlers.about)
 
 app.get('/headers', headers.showHeaders)
+
+app.get('/contact', handlers.contact)
+
+app.post('/process-contact', handlers.processContact)
+
+app.get('/thank-you', handlers.thankYou)
 
 app.use(handlers.notFound)
 
