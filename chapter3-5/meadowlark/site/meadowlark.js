@@ -32,8 +32,6 @@ app.post('/process-contact', handlers.processContact)
 
 app.get('/thank-you', handlers.thankYou)
 
-app.get('/api/tours', handlers.tours)
-
 app.use(handlers.notFound)
 
 app.use(handlers.serverError)
